@@ -1,11 +1,23 @@
 #Yes guys
 #This is an app that will allow citizens to apply for a national id and also store and send their other documents
+def login():
+
+def apply_for_national_id():
+
+def upload_documents():
+
+def check_application_status():
+
+def view_documents():
+
+
 def main ():
     print("Welcome to the National ID Application System")
     print("1. Apply for National ID")
     print("2. Upload Documents")
-    print("3. Check Application Status")
-    print("4. Exit")
+    print("3. View documents ")
+    print("4. Check Application Status")
+    print("5. Exit")
 
     while True:
         choice = input("Please enter your choice (1-4): ")
