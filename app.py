@@ -1,6 +1,21 @@
 #Yes guys
 #This is an app that will allow citizens to apply for a national id and also store and send their other documents
-def login():
+def __init__(self):
+    # Initializing a default app and password 
+    self.users = {"admin": "admin123"}
+    self.documents = {}
+
+def login(self):
+    # This function will allow users to login to the app
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    if username in self.users and self.users[username] == password:
+        print("Login successful!")
+        return username
+    else:
+        print("Invalid username or password")
+        self.login()
+
 
 def apply_for_national_id():
 
