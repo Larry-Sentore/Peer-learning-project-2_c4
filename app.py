@@ -20,6 +20,32 @@ def login(self):
 def apply_for_national_id():
 
 def upload_documents():
+    print("Upload Documents for National ID Application")
+    print("Please upload the following documents:")
+
+    documents = {
+        "1": "Birth Certificate",
+        "2": "ID Proof (Passport/License)",
+        "3": "Address Proof",
+        "4": "Passport-sized Photo"
+    }
+    for key, doc in documents.items():
+        print(f"{key}. {doc}")
+    
+    # Get user input
+    choice = input("\nSelect document to upload (1-4): ")
+    
+    # Check if valid choice
+    if choice in documents:
+        doc_name = documents[choice]
+        filename = input(f"Enter filename for {doc_name}: ")
+        
+        if filename:
+            print(f"{doc_name} uploaded successfully!")
+        else:
+            print("Upload cancelled.")
+    else:
+        print("Invalid choice.")
 
 def check_application_status():
 
