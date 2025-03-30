@@ -17,41 +17,45 @@ def login(self):
         self.login()
 
 
-def apply_for_national_id():
+def apply_for_national_id():   
+    pass
 
 def upload_documents():
-    print("Upload Documents for National ID Application")
-    print("Please upload the following documents:")
-
-    documents = {
-        "1": "Birth Certificate",
-        "2": "ID Proof (Passport/License)",
-        "3": "Address Proof",
-        "4": "Passport-sized Photo"
-    }
-    for key, doc in documents.items():
-        print(f"{key}. {doc}")
+    documents = {}
     
-    # Get user input
-    choice = input("\nSelect document to upload (1-4): ")
+    print(" Upload Documents for National ID ")
     
-    # Check if valid choice
-    if choice in documents:
-        doc_name = documents[choice]
-        filename = input(f"Enter filename for {doc_name}: ")
+    while True:
+        doc_type = input("What type of document are you uploading? (e.g. birth certificate, passport, etc.): ")
         
-        if filename:
-            print(f"{doc_name} uploaded successfully!")
-        else:
-            print("Upload cancelled.")
-    else:
-        print("Invalid choice.")
+        content = input("Please enter the content of the document(): ")
+        
+        documents[doc_type] = content
+        
+        more = input("Is there more content to add? (Y/N): ")
+        
+        if more == "N":
+            break
+    
+    print("\nDocuments uploaded successfully!")
+    print(f"You uploaded {len(documents)} document(s).")
+    
+    # Display uploaded documents
+    if documents:
+        print("\nUploaded documents:")
+        for doc_type, content in documents.items():
+            print(f"- {doc_type}")
+    
+    return documents
+
+upload_documents()
 
 def check_application_status():
-
+    pass
+    
 def view_documents():
-
-
+    pass
+    
 def main ():
     print("Welcome to the National ID Application System")
     print("1. Apply for National ID")
