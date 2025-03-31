@@ -48,12 +48,14 @@ def upload_documents():
     
     return documents
 
-upload_documents()
 
 def check_application_status():
     pass
     
-def view_documents():
+def view_documents(documents):
+    if documents:
+        for doc_type, content in documents.items():
+            print(f"- {doc_type}: {content}")
 
 # Check Application Status
 def check_application_status():
