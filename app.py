@@ -56,7 +56,7 @@ def apply_for_national_id(documents):
             "status": "Pending"
         }
         print(f"Application submitted successfully, {name}!")
-        return documents[name]
+        return documents["ID Application"]
 
 
 def upload_documents(documents):
