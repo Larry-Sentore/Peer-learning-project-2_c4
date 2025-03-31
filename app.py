@@ -10,6 +10,12 @@ def check_application_status():
 
 def view_documents():
 
+# Check Application Status
+def check_application_status():
+    application_id = input("Enter your application ID: ")
+    status = "Pending"  # Example status
+    # Status is pending, because we are not connecting it to a real database
+    print(f"Application ID {application_id} is currently: {status}")
 
 def main ():
     print("Welcome to the National ID Application System")
