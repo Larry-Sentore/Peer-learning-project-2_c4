@@ -1,5 +1,7 @@
 #Yes guys
 #This is an app that will allow citizens to apply for a national id and also store and send their other documents
+documents = {}
+
 def __init__(self):
     # Initializing a default app and password 
     self.users = {"admin": "admin123"}
@@ -20,8 +22,7 @@ def login(self):
 def apply_for_national_id():   
     pass
 
-def upload_documents():
-    documents = {}
+def upload_documents(documents):
     
     print(" Upload Documents for National ID ")
     
