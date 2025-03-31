@@ -1,25 +1,48 @@
 #Yes guys
 #This is an app that will allow citizens to apply for a national id and also store and send their other documents
 documents = {}
+users = {}
 
-def __init__(self):
-    # Initializing a default app and password 
-    self.users = {"admin": "admin123"}
-    self.documents = {}
+def sign_up(users):
+    # This function will allow users to login to the app
+    choice = input("Do you want to sign up or login? (S/L): ")
+    if choice == "S":
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+        users[username] = password
+        print("Sign up successful!")
+        return username
+    elif choice == "L":
+        return login_user(users)
+    else:
+        print("Invalid choice")
+        sign_up(users)
 
-def login(self):
+def login_user(users):
     # This function will allow users to login to the app
     username = input("Enter your username: ")
     password = input("Enter your password: ")
-    if username in self.users and self.users[username] == password:
+    if username in users and users[username] == password:
+        print("Login successful!")
+        return username
+    else:
+        print("Invalid username or password, ")
+        login_user(users)
+
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    if username in users and users[username] == password:
         print("Login successful!")
         return username
     else:
         print("Invalid username or password")
-        self.login()
+        login_user(users)
 
 
-def apply_for_national_id():   
+def apply_for_national_id(documements):
+    # This function will allow users to apply for a national id
+    print("Apply for National ID")
+    username = sign_up(users)   
     pass
 
 def upload_documents(documents):
@@ -48,10 +71,6 @@ def upload_documents(documents):
             print(f"- {doc_type}")
     
     return documents
-
-
-def check_application_status():
-    pass
     
 def view_documents(documents):
     if documents:
@@ -67,6 +86,7 @@ def check_application_status():
 
 def main ():
     print("Welcome to the National ID Application System")
+    sign_up(users)
     print("1. Apply for National ID")
     print("2. Upload Documents")
     print("3. View documents ")
@@ -86,3 +106,5 @@ def main ():
             break
         else:
             print("Invalid choice. Please try again.")
+
+main()
