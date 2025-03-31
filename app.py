@@ -39,7 +39,7 @@ def login_user(users):
         login_user(users)
 
 
-def apply_for_national_id(documements):
+def apply_for_national_id(documents):
     # This function will allow users to apply for a national id
     print("\nApply for National ID")
     name = input("Enter your full name: ")
@@ -49,13 +49,16 @@ def apply_for_national_id(documements):
     if name in users:
         print("You already applied for a National ID.")
     else:
-        users[name] = {
+        documents["ID Application"] = {
+            "name": name,
             "date_of_birth": date_of_birth,
             "address": address,
-            "documents": [],
             "status": "Pending"
         }
         print(f"Application submitted successfully, {name}!")
+        return documents[name]
+
+
 def upload_documents(documents):
     
     print(" Upload Documents for National ID ")
@@ -98,21 +101,23 @@ def check_application_status():
 def main ():
     print("Welcome to the National ID Application System")
     sign_up(users)
-    print("1. Apply for National ID")
-    print("2. Upload Documents")
-    print("3. View documents ")
-    print("4. Check Application Status")
-    print("5. Exit")
+    while True:    
+        print("1. Apply for National ID")
+        print("2. Upload Documents")
+        print("3. View documents ")
+        print("4. Check Application Status")
+        print("5. Exit")
 
-    while True:
         choice = input("Please enter your choice (1-4): ")
         if choice == '1':
-            apply_for_national_id()
+            apply_for_national_id(documents)
         elif choice == '2':
-            upload_documents()
+            upload_documents(documents)
         elif choice == '3':
-            check_application_status()
+            view_documents(documents)
         elif choice == '4':
+            check_application_status()
+        elif choice == '5':
             print("Thank you for using the National ID Application System!")
             break
         else:
