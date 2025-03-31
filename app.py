@@ -41,10 +41,21 @@ def login_user(users):
 
 def apply_for_national_id(documements):
     # This function will allow users to apply for a national id
-    print("Apply for National ID")
-    username = sign_up(users)   
-    pass
+    print("\nApply for National ID")
+    name = input("Enter your full name: ")
+    date_of_birth = input("Enter your date of birth (DD-MM-YYYY): ")
+    address = input("Enter your current address: ")
 
+    if name in users:
+        print("You already applied for a National ID.")
+    else:
+        users[name] = {
+            "date_of_birth": date_of_birth,
+            "address": address,
+            "documents": [],
+            "status": "Pending"
+        }
+        print(f"Application submitted successfully, {name}!")
 def upload_documents(documents):
     
     print(" Upload Documents for National ID ")
