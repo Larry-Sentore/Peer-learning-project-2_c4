@@ -1,13 +1,58 @@
 #Yes guys
 #This is an app that will allow citizens to apply for a national id and also store and send their other documents
-def login():
+def __init__(self):
+    # Initializing a default app and password 
+    self.users = {"admin": "admin123"}
+    self.documents = {}
 
-def apply_for_national_id():
+def login(self):
+    # This function will allow users to login to the app
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    if username in self.users and self.users[username] == password:
+        print("Login successful!")
+        return username
+    else:
+        print("Invalid username or password")
+        self.login()
+
+
+def apply_for_national_id():   
+    pass
 
 def upload_documents():
+    documents = {}
+    
+    print(" Upload Documents for National ID ")
+    
+    while True:
+        doc_type = input("What type of document are you uploading? (e.g. birth certificate, passport, etc.): ")
+        
+        content = input("Please enter the content of the document(): ")
+        
+        documents[doc_type] = content
+        
+        more = input("Is there more content to add? (Y/N): ")
+        
+        if more == "N":
+            break
+    
+    print("\nDocuments uploaded successfully!")
+    print(f"You uploaded {len(documents)} document(s).")
+    
+    # Display uploaded documents
+    if documents:
+        print("\nUploaded documents:")
+        for doc_type, content in documents.items():
+            print(f"- {doc_type}")
+    
+    return documents
+
+upload_documents()
 
 def check_application_status():
-
+    pass
+    
 def view_documents():
 
 # Check Application Status
