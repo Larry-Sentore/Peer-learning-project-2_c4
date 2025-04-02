@@ -1,1 +1,3 @@
 # This project is a simple national ID application app. The point of this app is to simplify the lives of people by digitizing government services which are known for long wait times, and inefficiency. We implemented OOP and included functions for signing up, loging in, applying for the national ID, uploading docuents manually, viewing said documents, checking application status, and also sharing files. To run the app, simply navigate to the run.py file and run it to run the application. 
+
+# Before running the run.py, run the memories.py to initialize the database. After that, then you can access and use the app properly. 
