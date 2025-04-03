@@ -60,6 +60,7 @@ class NationalIDSystem:
         else:
             #Stores application in the database
             self.c.execute("INSERT INTO applications (username, name, date_of_birth, address, status) VALUES (?, ?, ?, ?, ?)", (username, name, date_of_birth, address, "pending"))
+            self.conn.commit()
             print(f"Application submitted successfully, {name}!")
 
 #Function to "upload" documents manually
@@ -70,6 +71,7 @@ class NationalIDSystem:
             doc_type = input("What type of document are you uploading? (e.g. birth certificate, passport, etc.): ")
             content = input("Please enter the content of the document: ")
             self.c.execute("INSERT INTO documents (username, doc_type, content) VALUES (?, ?, ?)", (username, doc_type, content))
+            self.conn.commit()
             
             more = input("Is there more content to add? (Y/N): ")
             if more == "N":
@@ -133,10 +135,10 @@ class NationalIDSystem:
             print("4. Check Application Status")
             print("5. Share Documents")
             print("6. Exit")
-            print("7. View database tables")
             print("------------------------")
 
             choice = input("Please enter your choice (1-5): ")
+            print("------------------------")
             if choice == '1':
                 self.apply_for_national_id(username)
             elif choice == '2':
@@ -149,7 +151,7 @@ class NationalIDSystem:
                 self.share_documents(username)
             elif choice == '6':
                 print("Thank you for using the National ID Application System!")
-                self.c.close()
+                self.conn.close()
                 break
             else:
                 print("Invalid choice. Please try again.")
